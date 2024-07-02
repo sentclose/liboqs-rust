@@ -1,11 +1,11 @@
 [package]
-name = "oqs"
+name = "safe-oqs"
 version = "0.10.0"
 authors = ["Thom Wiggers <thom@thomwiggers.nl>"]
 edition = "2021"
 description = "A Rusty interface to Open-Quantum-Safe's liboqs"
 readme = "../README.md"
-repository = "https://github.com/open-quantum-safe/liboqs-rust"
+repository = "https://github.com/sentclose/liboqs-rust"
 license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -14,29 +14,29 @@ libc = "0.2"
 cstr_core = { version = "0.2", default-features = false, features = ["alloc"] }
 serde = { version = "1.0", optional = true, default-features = false, features = ["derive", "alloc"] }
 
-[dependencies.oqs-sys]
+[dependencies.safe-oqs-sys]
 path = "../oqs-sys"
-version = "0.10.0+liboqs-0.10.0"
+version = "0.10.0+liboqs-0.10.1"
 default-features = false
 
 [features]
-default = ["oqs-sys/openssl", "kems", "sigs", "std"]
+default = ["safe-oqs-sys/openssl", "kems", "sigs", "std"]
 std = []
-non_portable = ["oqs-sys/non_portable"]
-vendored = ["oqs-sys/vendored"]
+non_portable = ["safe-oqs-sys/non_portable"]
+vendored = ["safe-oqs-sys/vendored"]
 
 # algorithms: KEMs
-kems = ["oqs-sys/kems", "classic_mceliece", "frodokem", "hqc", "kyber", "ntruprime", "ml_kem"]
-bike = ["oqs-sys/bike"]  # not supported on Windows or 32-bit ARM
-classic_mceliece = ["oqs-sys/classic_mceliece"]
-frodokem = ["oqs-sys/frodokem"]
-hqc = ["oqs-sys/hqc"]
-kyber = ["oqs-sys/kyber"]
-ntruprime = ["oqs-sys/ntruprime"]
-ml_kem = ["oqs-sys/ml_kem"]
+kems = ["safe-oqs-sys/kems", "classic_mceliece", "frodokem", "hqc", "kyber", "ntruprime", "ml_kem"]
+bike = ["safe-oqs-sys/bike"]  # not supported on Windows or 32-bit ARM
+classic_mceliece = ["safe-oqs-sys/classic_mceliece"]
+frodokem = ["safe-oqs-sys/frodokem"]
+hqc = ["safe-oqs-sys/hqc"]
+kyber = ["safe-oqs-sys/kyber"]
+ntruprime = ["safe-oqs-sys/ntruprime"]
+ml_kem = ["safe-oqs-sys/ml_kem"]
 # algorithms: Signature schemes
-sigs = ["oqs-sys/sigs", "dilithium", "falcon", "sphincs", "ml_dsa"]
-dilithium = ["oqs-sys/dilithium"]
-falcon = ["oqs-sys/falcon"]
-sphincs = ["oqs-sys/sphincs"]
-ml_dsa = ["oqs-sys/ml_dsa"]
+sigs = ["safe-oqs-sys/sigs", "dilithium", "falcon", "sphincs", "ml_dsa"]
+dilithium = ["safe-oqs-sys/dilithium"]
+falcon = ["safe-oqs-sys/falcon"]
+sphincs = ["safe-oqs-sys/sphincs"]
+ml_dsa = ["safe-oqs-sys/ml_dsa"]

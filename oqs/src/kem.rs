@@ -184,9 +184,9 @@ impl std::fmt::Display for Algorithm {
 /// # Example
 /// ```rust
 /// # if !cfg!(feature = "kyber") { return; }
-/// use oqs;
-/// oqs::init();
-/// let kem = oqs::kem::Kem::new(oqs::kem::Algorithm::Kyber512).unwrap();
+/// use safe_oqs;
+/// safe_oqs::init();
+/// let kem = safe_oqs::kem::Kem::new(safe_oqs::kem::Algorithm::Kyber512).unwrap();
 /// let (pk, sk) = kem.keypair().unwrap();
 /// let (ct, ss) = kem.encapsulate(&pk).unwrap();
 /// let ss2 = kem.decapsulate(&sk, &ct).unwrap();

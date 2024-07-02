@@ -8,7 +8,7 @@
 //!
 //! This protocol has no replay protection!
 //! ```
-//! use oqs::*;
+//! use safe_oqs::*;
 //! # #[cfg(all(feature = "dilithium2", feature = "kyber"))]
 //! fn main() -> Result<()> {
 //!     oqs::init(); // Important: initialize liboqs
@@ -47,7 +47,7 @@ extern crate alloc;
 use ffi::common::OQS_STATUS;
 
 /// Access the OQS ffi through this crate.
-pub use oqs_sys as ffi;
+pub use safe_oqs_sys as ffi;
 
 mod macros;
 

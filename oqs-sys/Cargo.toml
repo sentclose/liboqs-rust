@@ -1,12 +1,12 @@
 [package]
-name = "oqs-sys"
-version = "0.10.0+liboqs-0.10.0"
+name = "safe-oqs-sys"
+version = "0.10.0+liboqs-0.10.1"
 authors = ["Thom Wiggers <thom@thomwiggers.nl>"]
 edition = "2021"
 links = "oqs"
 description = "Bindings to liboqs"
 readme = "../README.md"
-repository = "https://github.com/open-quantum-safe/liboqs-rust"
+repository = "https://github.com/sentclose/liboqs-rust"
 license = "MIT OR Apache-2.0"
 
 # Exclude certain liboqs files

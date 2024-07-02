@@ -168,9 +168,9 @@ impl Algorithm {
 /// # Example
 /// ```rust
 /// # if !cfg!(feature = "dilithium") { return; }
-/// use oqs;
-/// oqs::init();
-/// let scheme = oqs::sig::Sig::new(oqs::sig::Algorithm::Dilithium2).unwrap();
+/// use safe_oqs;
+/// safe_oqs::init();
+/// let scheme = safe_oqs::sig::Sig::new(safe_oqs::sig::Algorithm::Dilithium2).unwrap();
 /// let message = [0u8; 100];
 /// let (pk, sk) = scheme.keypair().unwrap();
 /// let signature = scheme.sign(&message, &sk).unwrap();

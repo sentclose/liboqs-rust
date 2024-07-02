@@ -118,7 +118,7 @@ tests.
 /// # Example: Some signed KEX
 /// This protocol has no replay protection!
 ///
-use oqs::*;
+use safe_oqs::*;
 fn main() -> Result<()> {
     let sigalg = sig::Sig::new(sig::Algorithm::Dilithium2)?;
     let kemalg = kem::Kem::new(kem::Algorithm::Kyber512)?;
