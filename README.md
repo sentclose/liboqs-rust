@@ -4,13 +4,13 @@
 
 | crate   | crates.io                                                                                  | docs.rs                                                                                           | License                                             |
 | ------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| oqs-sys | [ ![crates.io](https://img.shields.io/crates/v/oqs-sys)](https://crates.io/crates/oqs-sys) | [![crates.io/docs](https://img.shields.io/docsrs/oqs-sys)](https://docs.rs/crate/oqs-sys/latest/) | ![License](https://img.shields.io/crates/l/oqs-sys) |
-| oqs     | [![crates.io](https://img.shields.io/crates/v/oqs)](https://crates.io/crates/oqs)          | [![crates.io/docs](https://img.shields.io/docsrs/oqs)](https://docs.rs/crate/oqs/latest/)         | ![License](https://img.shields.io/crates/l/oqs)     |
+| safe-oqs-sys | [ ![crates.io](https://img.shields.io/crates/v/oqs-sys)](https://crates.io/crates/safe-oqs-sys) | [![crates.io/docs](https://img.shields.io/docsrs/oqs-sys)](https://docs.rs/crate/safe-oqs-sys/latest/) | ![License](https://img.shields.io/crates/l/oqs-sys) |
+| safe-oqs     | [![crates.io](https://img.shields.io/crates/v/oqs)](https://crates.io/crates/oqs)          | [![crates.io/docs](https://img.shields.io/docsrs/safe-oqs)](https://docs.rs/crate/safe-oqs/latest/)         | ![License](https://img.shields.io/crates/l/oqs)     |
 
 **liboqs-rust** offers two Rust wrappers for the [Open Quantum Safe](https://openquantumsafe.org/) [liboqs](https://github.com/open-quantum-safe/liboqs/) C library, which is a C library for quantum-resistant cryptographic algorithms.
 
-- The `oqs-sys` crate compiles and builds `liboqs` and generates `unsafe` bindings to the C library.
-- The `oqs` crate offers a Rust-style safe interface to the schemes included in `liboqs`.
+- The `safe-oqs-sys` crate compiles and builds `liboqs` and generates `unsafe` bindings to the C library.
+- The `safe-oqs` crate offers a Rust-style safe interface to the schemes included in `liboqs`.
 
 ## Versioning
 
@@ -37,10 +37,10 @@ Update your `Cargo.toml` and include `oqs`:
 
 ```toml
 [dependencies]
-oqs = "0.10.0"
+safe-oqs = "0.10.0"
 ```
 
-`oqs-sys` can be specified equivalently.
+`safe-oqs-sys` can be specified equivalently.
 
 ## Minimal builds
 
@@ -49,7 +49,7 @@ Note that if you specify `default-features = false`, you may also want to re-inc
 
 ## Vendored `liboqs`
 
-By default `oqs-sys` attempts to find a system-provided version of `liboqs` and build against it,
+By default `safe-oqs-sys` attempts to find a system-provided version of `liboqs` and build against it,
 falling back to vendored from-source build otherwise.
 You can opt into forcing the vendored build by enabling the `vendored` feature.
 
@@ -58,26 +58,26 @@ you can set the `LIBOQS_NO_VENDOR=1` environment variable and the build will fai
 
 ## Serde support
 
-You can enable `serde` serialization support by enabling the `serde` feature on the `oqs` crate.
+You can enable `serde` serialization support by enabling the `serde` feature on the `safe-oqs` crate.
 
 ## `std` support
 
-The `oqs-sys` crate does not use `std` at all.
+The `safe-oqs-sys` crate does not use `std` at all.
 Note that the default features do enable building `liboqs` with `openssl`, so use `default-features = false`.
 
 To make `oqs` a `#![no_std]` crate make sure the `std` feature is disabled.
-Make sure to also disable the `oqs-sys/openssl` feature by specifying `default-features = false`.
+Make sure to also disable the `safe-oqs-sys/openssl` feature by specifying `default-features = false`.
 
 As `default-features` includes the `kems` and `sigs` features, consider re-adding them as well. This results into:
 
 ```toml
-[dependencies.oqs]
+[dependencies.safe-oqs]
 version = "*"
 default-features = false
 features = ["sigs", "kems"]
 ```
 
-You will probably want to change the random-number generator through the [`OQS_RAND` API][] offered by `oqs-sys`.
+You will probably want to change the random-number generator through the [`OQS_RAND` API][] offered by `safe-oqs-sys`.
 
 [`OQS_RAND` API]: https://open-quantum-safe.github.io/liboqs-rust/oqs_sys/rand/index.html
 
